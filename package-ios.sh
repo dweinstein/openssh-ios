@@ -1,10 +1,14 @@
 #!/usr/bin/env sh
 
 set -v
+. ios-env.sh
 
 TAG=$1
 
 [ -z "$1" ] && TAG=master
+
+ARCHIVE="openssh-${ARCH}-${TAG}.zip"
+echo ${ARCHIVE}
 
 TARGETS=(
     scp
@@ -28,4 +32,4 @@ do
   ldid -S "$f"
 done
 
-zip -r ../${TAG}.zip ${TARGETS[@]}
+zip -r "../${ARCHIVE}" ${TARGETS[@]}
