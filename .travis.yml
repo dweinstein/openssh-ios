@@ -1,5 +1,9 @@
 language: c
 compiler: gcc
+before_install:
+  - brew update
+install:
+  - brew install ldid
 script:
   - ./build-ios.sh
 git:
