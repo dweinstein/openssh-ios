@@ -9,3 +9,4 @@
 NPROCS=$(sysctl hw.ncpu | awk '{print $2}')
 . ./ios-env.sh
 cd ./openssh-portable && make clean && make -j${NPROCS} all
+

@@ -1,5 +1,11 @@
 #!/usr/bin/env sh
 
+set -v
+
+TAG=$1
+
+[ -z "$1" ] && TAG=master
+
 TARGETS=(
     scp
     sftp
@@ -14,4 +20,12 @@ TARGETS=(
     sshd
 )
 
-cd ./openssh-portable && zip -r ../release.zip ${TARGETS[@]}
+cd ./openssh-portable
+
+for f in ${TARGETS[@]}
+do
+  echo "signing $f"
+  ldid -S "$f"
+done
+
+zip -r ../${TAG}.zip ${TARGETS[@]}
