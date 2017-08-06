@@ -1,0 +1,33 @@
+language: c
+compiler: gcc
+before_install:
+  - brew update
+install:
+  - brew install openssl
+script:
+  - ./build-ios.sh
+git:
+  submodules: true
+deploy:
+  overwrite: true
+  provider: releases
+  api_key:
+    secure: NXh9cWqfr5dOrM/XHGBOfaOp7UoWq2UPlkIN2ighGRJ9Nc53WMv3wDB/5LCFn+aPMMEIvNw/YKgV17+OFK1/dOgmpZfzJiG1wOUsXqZtD9GYf+lIsFJ+aLqRV3AFZMT5yKIWyUcnUJzQWJzdI5PTklh/+OOv7645xLoiWabWZ6//Khi0Ev1Psbs3d+Dlx4CU4u1KXMS4bgt45Brc91XHmImRRtjz5w3OzbrqtM9kR9fW8SKCF6g5H135YO+x38dXg1ydDCWjqPjBcSfBSCG7YeBNWGHC150qareo7vV4Hz/t/uzaQOwPZwXmcwjQhObb+9pKPUEIUyzc4FWZeKt9UBnFCT5w/qqieAOvDVdwLQOd147gOXayVOkRCsBG0rp80NTLZKIX6lpBaE3J422EPTRtADiE2a1V6bX75gQ7wJVomDMTUdSwkkygHWouc7yGBQzpG/x4VozgFCUsBLOU68q6fXLHy3hsBaJLaPX+pYVJg1X86TkygeLQaNi8BcQbCC6rkgYWqHZBK0oxKO7jkym84eonuwBHpP5FJsnXiWAN3ipqsbpoe4Nm9NP1kZqmUUyhVEC6XemI2P+VzLm4RuszF0T14L3f9TLXbKawQvtQsz/C1bfWjki4Kh4AY9blq3agJ4gHzUOBCZpHDyb3dHs1PaqvHkE8DdwinUr8h+U=
+  file:
+    - "./openssh-portable/scp"
+    - "./openssh-portable/sftp"
+    - "./openssh-portable/sftp-server"
+    - "./openssh-portable/ssh"
+    - "./openssh-portable/ssh-add"
+    - "./openssh-portable/ssh-agent"
+    - "./openssh-portable/ssh-keygen"
+    - "./openssh-portable/ssh-keyscan"
+    - "./openssh-portable/ssh-keysign"
+    - "./openssh-portable/ssh-pkcs11-helper"
+    - "./openssh-portable/sshd"
+  skip_cleanup: true
+  on:
+    repo: dweinstein/openssh-ios
+    tags: true
+os: osx
+osx_image: xcode8.3

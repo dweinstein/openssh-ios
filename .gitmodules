@@ -1,0 +1,3 @@
+[submodule "openssh-portable"]
+	path = openssh-portable
+	url = ./openssh-portable
