@@ -18,7 +18,6 @@ autoheader
   --disable-utmp \
   --disable-libutil \
   --disable-pututline \
-  --with-sandbox=no \
   --with-default-path="/usr/bin:/bin:/usr/sbin:/sbin" \
   --with-cppflags="-I/usr/local/opt/openssl/include"
 
